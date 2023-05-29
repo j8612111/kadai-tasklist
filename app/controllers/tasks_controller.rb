@@ -30,7 +30,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
 
-    if @task.update(message_params)
+    if @task.update(task_params)
       flash[:success] = '更新成功'
       redirect_to @task
     else
@@ -44,7 +44,7 @@ class TasksController < ApplicationController
     @task.destroy
 
     flash[:success] = '削除成功'
-    redirect_to messages_url
+    redirect_to tasks_url
   end
   
   private
